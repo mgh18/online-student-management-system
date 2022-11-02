@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SMS.Models.GetStatModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Stats</h1>
+<table class="table">
+    <tr>
+        <th>
+            Course
+        </th>
+        <th>
+            Invited
+        </th>
+        <th>
+            Accepted
+        </th>
+        <th>
+            Acceptance Percentage
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.invited_students)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage_s)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            Most favorite Course(s)
+        </th>
+      <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.mostfav)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+            
+        </tr>
+    }
+
+</table>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            Least favorite Course(s)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.leastfav)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+
+        </tr>
+    }
+
+</table>

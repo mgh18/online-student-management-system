@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SMS.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    @{
+
+        @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-primary" });
+
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @{
+
+                        @Html.ActionLink(" ", "Edit", new { id = item.Sysid }, new { @class = "btn btn-primary li fa fa-pen" });
+                        @Html.ActionLink(" ", "Details", new { id = item.Sysid }, new { @class = "btn  btn-success li fa fa-eye" });
+
+
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</p>

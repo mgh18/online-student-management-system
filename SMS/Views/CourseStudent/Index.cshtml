@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SMS.Models.Invitation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Courses you are invited </h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Course Name
+        </th>
+
+        <th>
+            Course Day
+        </th>
+
+        <th>
+            Course Time
+        </th>
+
+        <th>
+            Instructor
+        </th>
+
+        <th>
+            Accepted
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAccepted)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.Sysid }, new { @class = "btn btn-primary li fa fa-pen" })
+            </td>
+        </tr>
+    }
+
+
+</table>
